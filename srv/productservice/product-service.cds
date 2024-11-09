@@ -1,4 +1,4 @@
-namespace sap.capire.mail.app.productservice;
+namespace sap.capire.mail.app.srv.productservice;
 
 using { sap.capire.mail.app.db as model } from '../../db/schema';
 
