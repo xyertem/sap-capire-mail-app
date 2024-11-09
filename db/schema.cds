@@ -20,7 +20,7 @@ entity ProductDetails : cuid, managed {
     material        : String(50);
     batteryLife     : String(30);
     connectivity    : String(100); // Comma-separated list (e.g., "Bluetooth, Wi-Fi, GPS")
-    warranty        : String(20);
+    warranty        : String(111);
     screenSize      : String(20); // Optional field for TVs
     resolution      : String(30); // Optional field for TVs
     processor       : String(50); // Optional field for computers
