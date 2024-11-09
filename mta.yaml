@@ -27,6 +27,15 @@ modules:
           srv-url: ${default-url}
     requires:
       - name: sap-capire-mail-app-auth
+      - name: sap-capire-mail-app-db
+
+  - name: sap-capire-mail-app-db-deployer
+    type: hdb
+    path: gen/db
+    parameters:
+      buildpack: nodejs_buildpack
+    requires:
+      - name: sap-capire-mail-app-db
 resources:
   - name: sap-capire-mail-app-auth
     type: org.cloudfoundry.managed-service
@@ -37,3 +46,8 @@ resources:
       config:
         xsappname: sap-capire-mail-app-${org}-${space}
         tenant-mode: dedicated
+  - name: sap-capire-mail-app-db
+    type: com.sap.xs.hdi-container
+    parameters:
+      service: hana
+      service-plan: hdi-shared
