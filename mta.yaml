@@ -19,17 +19,24 @@ modules:
       buildpack: nodejs_buildpack
       readiness-health-check-type: http
       readiness-health-check-http-endpoint: /health
+    properties:
+      OPTIMIZE_MEMORY: true
     build-parameters:
       builder: npm
     provides:
       - name: srv-api # required by consumers of CAP services (e.g. approuter)
+        public: true
         properties:
           srv-url: ${default-url}
     requires:
       - name: sap-capire-mail-app-auth
       - name: sap-capire-mail-app-db
       - name: sap-capire-mail-app-destination
-
+        group: destinations
+        properties:
+          name: srv-api # must be used in xs-app.json as well
+          url: ~ {srv-url}
+          forwardAuthToken: true
   - name: sap-capire-mail-app-db-deployer
     type: hdb
     path: gen/db
