@@ -4,7 +4,7 @@ Product app when user purchase some item from the it is sending mail to user acc
 
 # Product Invoce Sending as mail
 
-![Invoice](./assets/new-image.png)
+![Invoice](./assets/image.png)
 
 
 # Getting Started
