@@ -1,4 +1,4 @@
-namespace sap.capire.mail.app.srv.mailservice;
+namespace sap.capire.mail.app.srv;
 
 @path: 'mailservice'
 service MailService {
