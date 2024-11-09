@@ -1,5 +1,5 @@
 ID;color;weight;dimensions;material;batteryLife;connectivity;warranty;screenSize;resolution;processor;ram;storage;graphicsCard
-101;Black;250g;20 x 15 x 5 cm;Plastic;30 hours;Bluetooth, 3.5mm Jack;2 years;;;;
-102;Silver;50g;5 x 5 x 1 cm;Aluminum;10 days;Bluetooth, Wi-Fi, GPS;1 year;;;;
-103;Black;15kg;150 x 90 x 20 cm;Metal and Plastic;;;HDMI, USB, Wi-Fi, Bluetooth;3 years;55 inches;3840 x 2160;;;
-104;Gray;2.5kg;35 x 25 x 2 cm;Aluminum;8 hours;Bluetooth, Wi-Fi;2 years;;;Intel Core i7;16GB;512GB SSD;NVIDIA RTX 3060
+101;Black;250g;20 x 15 x 5 cm;Plastic;30 hours;Bluetooth, 3.5mm Jack;2 years;null;null;null;null;null;null
+102;Silver;50g;5 x 5 x 1 cm;Aluminum;10 days;Bluetooth, Wi-Fi, GPS;1 year;null;null;null;null;null;null
+103;Black;15kg;150 x 90 x 20 cm;Metal and Plastic;null;null;HDMI, USB, Wi-Fi, Bluetooth;3 years;55 inches;3840 x 2160;null;null;null
+104;Gray;2.5kg;35 x 25 x 2 cm;Aluminum;8 hours;Bluetooth, Wi-Fi;2 years;null;null;Intel Core i7;16GB;512GB SSD;NVIDIA RTX 3060
