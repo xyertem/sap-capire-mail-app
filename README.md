@@ -1,3 +1,12 @@
+# Application Description
+
+Product app when user purchase some item from the it is sending mail to user account
+
+# Product Invoce Sending as mail
+
+![Invoice](./assets/new-image.png)
+
+
 # Getting Started
 
 Welcome to your new project.
