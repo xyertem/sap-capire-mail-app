@@ -6,7 +6,7 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "@cap-js/hana": "^1.4.1",
+    "@cap-js/hana": "^1",
     "@sap/cds": "^8",
     "@sap/xssec": "^4",
     "@sendgrid/mail": "^8.1.4",
@@ -23,19 +23,29 @@
   },
   "cds": {
     "requires": {
-      "db": {
-        "[development]": {
-          "kind": "sqlite",
-          "model": "srv/*"
-        },
-        "[production]": {
-          "kind": "hana",
-          "impl": "@cap-js/hana",
-          "deploy-format": "hdbtable",
-          "auth": "xsuaa",
-          "model": "srv/*"
-        }
+      "MailService": {
+        "kind": "odata",
+        "model": "srv/*"
+      },
+      "ProductService": {
+        "kind": "odata",
+        "model": "srv/*"
+      },
+      "[production]": {
+        "db": "hana",
+        "impl": "@cap-js/hana",
+        "deploy-format": "hdbtable",
+        "auth": "xsuaa"
+      },
+      "[hybrid]": {
+        "db": "hana"
+      },
+      "[development]" : {
+         "db": "sqlite"
       }
+    },
+    "sql": {
+      "native_hana_associations": false
     }
   }
 }
