@@ -4,7 +4,7 @@ const sgMail = require('@sendgrid/mail')
 const {mailbody} = require('../mailtemplate/mail-body');
 
 module.exports = cds.service.impl(async function () {
-    this.on('triggerMailEvent', async => {
+    this.on('triggerMailEvent', async ( req, res ) => {
         sgMail.setApiKey(process.env.SENDGRID_API_KEY)
         const msg = {
             to: 'ykselertem@yandex.com', // Change to your recipient
