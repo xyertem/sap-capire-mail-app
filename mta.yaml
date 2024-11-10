@@ -64,3 +64,14 @@ resources:
     parameters:
       service: destination
       service-plan: lite
+  # ----------------- CREDENTIAL STORE  -----------------------
+  - name: demo-store
+  # -----------------------------------------------------------
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: credstore
+      service-name: ${space}-demo-store
+      service-plan: free
+      config: 
+         authentication:
+              type: basic
