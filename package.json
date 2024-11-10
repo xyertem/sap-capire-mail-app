@@ -24,25 +24,25 @@
     },
     "cds": {
         "requires": {
-            "MailService": {
-                "kind": "odata",
-                "model": "srv/*"
-            },
-            "ProductService": {
-                "kind": "odata",
-                "model": "srv/*"
-            },
             "[production]": {
-                "db": "hana",
-                "impl": "@cap-js/hana",
-                "deploy-format": "hdbtable",
+                "db": {
+                    "kind": "hana",
+                    "model": "srv/*",
+                    "deploy-format": "hdbtable"
+                },
                 "auth": "xsuaa"
             },
             "[hybrid]": {
-                "db": "hana"
+                "db": {
+                    "kind": "hana",
+                    "model": "srv/*"
+                }
             },
             "[development]": {
-                "db": "sqlite"
+                "db": {
+                    "kind": "sqlite",
+                    "model": "srv/*"
+                }
             }
         },
         "sql": {
