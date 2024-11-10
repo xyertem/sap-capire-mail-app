@@ -1,6 +1,6 @@
 const debug = require('debug')('srv:credStore');
-const fetch = require('node-fetch');
 const jose = require('node-jose');
+const fetch = require('node-fetch');
 const xsenv = require('@sap/xsenv');
 xsenv.loadEnv();
 
