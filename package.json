@@ -13,8 +13,8 @@
         "@sendgrid/mail": "^8.1.4",
         "dotenv": "^16.4.5",
         "express": "^4",
-        "jose": "^5.9.6",
-        "node-fetch": "^3.3.2"
+        "node-fetch": "^2.7.0",
+        "node-jose": "^2.2.0"
     },
     "devDependencies": {
         "@cap-js/cds-types": "^0.6",
