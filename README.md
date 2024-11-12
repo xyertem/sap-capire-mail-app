@@ -3,15 +3,15 @@
 Product app when user purchase some item from the it is sending mail to user account.
 
 # Table of content
-BTP and Third party api services:
-    
-    •	CAP Odata servisi
-    •	BTP XUAAA Servisi
-    •	BTP Hana DB Cloud Servisi
+
+BTP and Third party services:
+
+    •	BTP XUAAA serivce
+    •	BTP Hana DB Cloud service
     •	BTP Destination
-    •	BTP Credential Store Servisi
-    •	BTP HDI and Schema Servisi
-    •	SendGrid Api
+    •	BTP Credential Store service
+    •	BTP HDI and Schema Service
+    •	SendGrid Mail api implementations
     
 ![BTP](./assets/btp.png)
 
