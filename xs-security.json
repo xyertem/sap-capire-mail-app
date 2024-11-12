@@ -1,6 +1,36 @@
 {
-  "scopes": [],
+  "xsappname": "sap-capire-mail-app",
+  "tenant-mode": "dedicated",
+  "description": "Security profile of called application",
+  "scopes": [
+    {
+      "name": "uaa.user",
+      "description": "UAA"
+    },
+    {
+      "name": "$XSAPPNAME.credstore.read",
+      "description": "Read access to Credential Store"
+    },
+    {
+      "name": "$XSAPPNAME.credstore.write",
+      "description": "Write access to Credential Store"
+    }
+  ],
   "attributes": [],
-  "role-templates": [],
+  "role-templates": [
+    {
+      "name": "Token_Exchange",
+      "description": "UAA",
+      "scope-references": ["uaa.user"]
+    },
+    {
+      "name": "CredStoreAccess",
+      "description": "Access to Credential Store",
+      "scope-references": [
+        "$XSAPPNAME.credstore.read",
+        "$XSAPPNAME.credstore.write"
+      ]
+    }
+  ],
   "authorities-inheritance": false
 }

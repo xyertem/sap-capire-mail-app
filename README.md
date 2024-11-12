@@ -1,8 +1,21 @@
 # Application Description
 
-Product app when user purchase some item from the it is sending mail to user account
+Product app when user purchase some item from the it is sending mail to user account.
 
-# Product Invoce Sending as mail
+# Table of content
+BTP and Third party api services:
+    
+    •	CAP Odata servisi
+    •	BTP XUAAA Servisi
+    •	BTP Hana DB Cloud Servisi
+    •	BTP Destination
+    •	BTP Credential Store Servisi
+    •	BTP HDI and Schema Servisi
+    •	SendGrid Api
+    
+![BTP](./assets/btp.png)
+
+# Product Invoice Sending as mail
 
 ![Invoice](./assets/image.png)
 

@@ -1,4 +1,3 @@
----
 _schema-version: 3.3.0
 ID: sap-capire-mail-app
 version: 1.0.0
@@ -31,6 +30,7 @@ modules:
     requires:
       - name: sap-capire-mail-app-auth
       - name: sap-capire-mail-app-db
+      - name: demo-store
       - name: sap-capire-mail-app-destination
         group: destinations
         properties:
@@ -66,12 +66,12 @@ resources:
       service-plan: lite
   # ----------------- CREDENTIAL STORE  -----------------------
   - name: demo-store
-  # -----------------------------------------------------------
+    # -----------------------------------------------------------
     type: org.cloudfoundry.managed-service
     parameters:
       service: credstore
-      service-name: ${space}-demo-store
-      service-plan: free
-      config: 
-         authentication:
-              type: basic
+      service-name: demo-store
+      service-plan: trial
+      config:
+        authentication:
+          type: basic

@@ -39,7 +39,8 @@
                 "db": {
                     "kind": "hana",
                     "model": "srv/*"
-                }
+                },
+                "auth": "xsuaa"
             },
             "[development]": {
                 "db": {

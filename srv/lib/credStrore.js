@@ -31,6 +31,19 @@ async function decryptPayload(privateKey, payload) {
     return result;
 }
 
+async function encryptPayload(publicKey, payload) {
+    const key = await jose.JWK.asKey(`-----BEGIN PUBLIC KEY-----${publicKey}-----END PUBLIC KEY-----`,
+        "pem",
+        { alg: "RSA-OAEP-256" }
+    );
+    const options = {
+        contentAlg: "A256GCM",
+        compact: true,
+        fields: { "iat": Math.round(new Date().getTime() / 1000) }
+    };
+    return jose.JWE.createEncrypt(options, key).update(Buffer.from(payload, "utf8")).final();
+}
+
 function headers(binding, namespace, init) {
     const result = new fetch.Headers(init);
     result.set('Authorization', `Basic ${Buffer.from(`${binding.username}:${binding.password}`).toString('base64')}`);
@@ -57,12 +70,16 @@ async function fetchAndDecryptValue(privateKey, url, method, headers, body) {
 }
 
 async function readCredential(namespace, type, name) {
-    return fetchAndDecrypt(
-        binding.encryption.client_private_key,
-        `${binding.url}/${type}?name=${encodeURIComponent(name)}`, 
-        "get", 
-        headers(binding, namespace)
-    );
+    const headersToSend = headers(binding, namespace);
+    const url = `${binding.url}/${type}?name=${encodeURIComponent(name)}`;
+    const privateKey = binding.encryption.client_private_key
+    const resData = await fetchAndDecrypt(
+        privateKey,
+        url,
+        "get",
+        headersToSend
+        );
+    return(resData);
 }
 
 async function readCredentialValue(namespace, type, name) {
@@ -74,7 +91,7 @@ async function readCredentialValue(namespace, type, name) {
     );
 }
 
-async function writeCredential(binding, namespace, type, credential) {
+async function writeCredential(namespace, type, credential) {
     return fetchAndDecrypt(
         binding.encryption.client_private_key,
         `${binding.url}/${type}`,
