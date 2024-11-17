@@ -2,15 +2,22 @@ const debug = require('debug')('srv:credStore');
 const jose = require('node-jose');
 const fetch = require('node-fetch');
 const xsenv = require('@sap/xsenv');
+const https = require('https');
 xsenv.loadEnv();
 
 let services = new Object()
 let binding = new Object(); 
 
-if (cds.env.profiles.includes('production')) {
+if (cds.env.profiles.includes('production') || cds.env.profiles.includes('development')) {
     services = xsenv.getServices({ credStore: { tag: 'credstore' }});
     binding = services.credStore;
 }
+
+const agent = new https.Agent({
+    cert: binding.certificate,
+    key: binding.key,
+    rejectUnauthorized: true
+});
 
 function checkStatus(response) {
     debug('credStore.checkStatus:', response.status, response.statusText, response.url);
@@ -48,6 +55,7 @@ function headers(binding, namespace, init) {
     const result = new fetch.Headers(init);
     result.set('Authorization', `Basic ${Buffer.from(`${binding.username}:${binding.password}`).toString('base64')}`);
     result.set('sapcp-credstore-namespace', namespace);
+    result.set('agent',agent)
     return result;
 }
 

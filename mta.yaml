@@ -72,6 +72,4 @@ resources:
       service: credstore
       service-name: demo-store
       service-plan: trial
-      config:
-        authentication:
-          type: basic
+      
