@@ -1,60 +1,61 @@
 {
-    "name": "sap-capire-mail-app",
-    "version": "1.0.0",
-    "description": "A simple CAP project.",
-    "repository": "<Add your repository here>",
-    "license": "UNLICENSED",
-    "private": true,
-    "dependencies": {
-        "@cap-js/hana": "^1",
-        "@sap/cds": "^8",
-        "@sap/cds-odata-v2-adapter-proxy": "^1.9.21",
-        "@sap/xsenv": "^5.4.0",
-        "@sap/xssec": "^4",
-        "@sendgrid/mail": "^8.1.4",
-        "axios": "^1.7.7",
-        "dotenv": "^16.4.5",
-        "express": "^4",
-        "node-fetch": "^2.7.0",
-        "node-jose": "^2.2.0"
-    },
-    "devDependencies": {
-        "@cap-js/cds-types": "^0.6",
-        "@cap-js/sqlite": "^1.7.6",
-        "@sap/cds-dk": "^8"
-    },
-    "scripts": {
-        "start": "cds-serve"
-    },
-    "cds": {
-        "requires": {
-            "[production]": {
-                "db": {
-                    "kind": "hana",
-                    "model": "srv/*",
-                    "deploy-format": "hdbtable"
-                },
-                "auth": "xsuaa"
-            },
-            "[hybrid]": {
-                "db": {
-                    "kind": "hana",
-                    "model": "srv/*"
-                },
-                "auth": "xsuaa"
-            },
-            "[development]": {
-                "db": {
-                    "kind": "sqlite",
-                    "model": "srv/*"
-                }
-            }
+  "name": "sap-capire-mail-app",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@cap-js/hana": "^1",
+    "@sap/cds": "^8",
+    "@sap/cds-odata-v2-adapter-proxy": "^1.9.21",
+    "@sap/xsenv": "^5.4.0",
+    "@sap/xssec": "^4",
+    "@sendgrid/mail": "^8.1.4",
+    "axios": "^1.7.7",
+    "dotenv": "^16.4.5",
+    "express": "^4",
+    "node-fetch": "^2.7.0",
+    "node-jose": "^2.2.0",
+    "twilio": "^5.3.7"
+  },
+  "devDependencies": {
+    "@cap-js/cds-types": "^0.6",
+    "@cap-js/sqlite": "^1.7.6",
+    "@sap/cds-dk": "^8"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "cds": {
+    "requires": {
+      "[production]": {
+        "db": {
+          "kind": "hana",
+          "model": "srv/*",
+          "deploy-format": "hdbtable"
         },
-        "sql": {
-            "native_hana_associations": false
+        "auth": "xsuaa"
+      },
+      "[hybrid]": {
+        "db": {
+          "kind": "hana",
+          "model": "srv/*"
+        },
+        "auth": "xsuaa"
+      },
+      "[development]": {
+        "db": {
+          "kind": "sqlite",
+          "model": "srv/*"
         }
+      }
     },
-    "cov2ap": {
-        "plugin": true
+    "sql": {
+      "native_hana_associations": false
     }
+  },
+  "cov2ap": {
+    "plugin": true
+  }
 }

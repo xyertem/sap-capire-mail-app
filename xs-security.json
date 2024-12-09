@@ -21,7 +21,9 @@
     {
       "name": "Token_Exchange",
       "description": "UAA",
-      "scope-references": ["uaa.user"]
+      "scope-references": [
+        "uaa.user"
+      ]
     },
     {
       "name": "CredStoreAccess",
