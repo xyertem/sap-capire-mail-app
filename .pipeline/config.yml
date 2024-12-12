@@ -9,7 +9,6 @@
 ###
 
 
-
 ### General project setup
 general:
   inferBuildTool: true
@@ -17,25 +16,14 @@ general:
 
 ### Step-specific configuration
 steps:
-
   artifactPrepareVersion:
     versioningType: cloud_noTag
-
-### Stage-specific configuration
-stages:
-  'Confirm':
-    manualConfirmation: false
-
-#  Integration:
-#    credentials:
-#      - alias: 'mySystemAlias'
-#        credentialId: 'mySystemCredentialsId'
-
-Release:
-  cfTargets:
-    - org: '4b4ec287trial'
-      space: 'dev'
-      apiEndpoint: 'https://api.cf.us10-001.hana.ondemand.com'
-      appName: 'sap-capire-mail-app'
-      manifest: 'mta.yaml'
-      credentialsId: 'deploy-to-cf'
+  mtaBuild:
+    buildTarget: 'CF'
+  cloudFoundryDeploy:
+    cloudFoundry:
+      - org: '4b4ec287trial'
+        space: 'dev'
+        apiEndpoint: 'https://api.cf.us10-001.hana.ondemand.com'
+        appName: 'sap-capire-mail-app'
+        credentialsId: 'deploy-to-cf'     
