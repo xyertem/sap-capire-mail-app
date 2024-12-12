@@ -9,21 +9,45 @@
 ###
 
 
+
 ### General project setup
 general:
   inferBuildTool: true
-  buildTool: 'mta'
 
 ### Step-specific configuration
 steps:
+  mavenExecute:
+    dockerImage: devxci/mbtci:1.0.14
+
   artifactPrepareVersion:
     versioningType: cloud_noTag
-  mtaBuild:
-    buildTarget: 'CF'
-  cloudFoundryDeploy:
-    cloudFoundry:
-      - org: '4b4ec287trial'
-        space: 'dev'
-        apiEndpoint: 'https://api.cf.us10-001.hana.ondemand.com'
-        appName: 'sap-capire-mail-app'
-        credentialsId: 'deploy-to-cf'     
+
+### Stage-specific configuration
+stages:
+  
+  'Confirm':
+    manualConfirmation: false
+
+#  Integration:
+#    credentials:
+#      - alias: 'mySystemAlias'
+#        credentialId: 'mySystemCredentialsId'
+  Acceptance:
+    cloudFoundryDeploy: false
+    cfOrg: '4b4ec287trial'
+    cfSpace: 'dev'
+    cfApiEndpoint: 'https://api.cf.us10-001.hana.ondemand.com'
+    cfAppName: 'sap-capire-mail-app'
+    cfCredentialsId: 'deploy-to-cf'
+    deployType: "standard"
+    tmsUpload: false
+
+  Release:
+    cloudFoundryDeploy: true
+    cfOrg: '4b4ec287trial'
+    cfSpace: 'dev'
+    cfApiEndpoint: 'https://api.cf.us10-001.hana.ondemand.com'
+    cfAppName: 'sap-capire-mail-app'
+    cfCredentialsId: 'deploy-to-cf'
+    deployType: "standard"
+    tmsUpload: false
