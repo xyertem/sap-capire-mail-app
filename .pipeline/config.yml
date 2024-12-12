@@ -37,5 +37,5 @@ Release:
       space: 'dev'
       apiEndpoint: 'https://api.cf.us10-001.hana.ondemand.com'
       appName: 'sap-capire-mail-app'
-      manifest: 'manifest.yml'
+      manifest: 'mta.yaml'
       credentialsId: 'deploy-to-cf'
