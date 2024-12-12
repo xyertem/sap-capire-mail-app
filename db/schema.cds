@@ -1,6 +1,6 @@
 namespace sap.capire.mail.app.db;
 
-using { cuid, managed } from '@sap/cds/common';
+using { cuid, managed, Country } from '@sap/cds/common';
 
 entity Products : cuid, managed {
     name            : String(100);
@@ -27,4 +27,14 @@ entity ProductDetails : cuid, managed {
     ram             : String(20); // Optional field for computers
     storage         : String(50); // Optional field for computers
     graphicsCard    : String(50); // Optional field for computers
+}
+
+entity Users {
+    key userId: String(111);
+    name: String(111);
+    lastName: String(111);
+    birthDate: DateTime;
+    phone: Integer;
+    email: String(1111);
+    country: Country
 }

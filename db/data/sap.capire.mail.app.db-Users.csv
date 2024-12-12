@@ -1,0 +1,6 @@
+userId;name;lastName;birthDate;phone;email;country
+U006;David	Brown;1991-04-12;1112233445;david.brown@example.com;Canada
+U007;Emma	Taylor;1996-07-18;9988776655;emma.taylor@example.com;Australia
+U008;Ahmed	Abdullah;1990-09-05;4433221100;ahmed.abdullah@example.com;UAE
+U009;Sofia	Rossi;1987-06-14;7766554433;sofia.rossi@example.com;Italy
+U010;Lucas	Martinez;1993-11-30;8899001122;lucas.martinez@example.com;Mexico
