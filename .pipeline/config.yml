@@ -33,6 +33,16 @@ steps:
 #   'Confirm':
 #     manualConfirmation: false
 
+stages:
+  'Central Build':
+    buildExecute : true
+
+  'Confirm':
+    manualConfirmation: false
+
+  'Release':
+    cloudFoundryDeploy: true
+
   # Release:
   #  cfTargets:
   #    - org: '4b4ec287trial'
