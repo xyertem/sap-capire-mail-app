@@ -20,14 +20,13 @@ steps:
   mtaBuild:
     buildTarget: 'CF'
   
-  Release:
-    cfTargets:
-     - org: '4b4ec287trial'
-       space: 'dev'
-       apiEndpoint: 'https://api.cf.us10-001.hana.ondemand.com'
-       appName: 'sap-capire-mail-app'
-       manifest: 'manifest.yml'
-       credentialsId: 'deploy-to-cf'
+  cloudFoundryDeploy:
+    cloudFoundry:
+      org: '4b4ec287trial'
+      space: 'dev'
+      apiEndpoint: 'https://api.cf.us10-001.hana.ondemand.com'
+      appName: 'sap-capire-mail-app'
+      credentialsId: 'deploy-to-cf'
 
 ### Stage-specific configuration
 # stages:
