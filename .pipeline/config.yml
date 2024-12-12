@@ -15,6 +15,12 @@ general:
   inferBuildTool: true
   buildTool: 'mta'
 
+### Step-specific configuration
+steps:
+
+  artifactPrepareVersion:
+    versioningType: cloud_noTag
+
 ### Stage-specific configuration
 stages:
   'Confirm':
@@ -25,19 +31,11 @@ stages:
 #      - alias: 'mySystemAlias'
 #        credentialId: 'mySystemCredentialsId'
 
- 
-
-### Step-specific configuration
-steps:
-
-  artifactPrepareVersion:
-    versioningType: cloud_noTag
-
-  Release:
-    cfTargets:
-      - org: '4b4ec287trial'
-        space: 'dev'
-        apiEndpoint: 'https://api.cf.us10-001.hana.ondemand.com'
-        appName: 'sap-capire-mail-app'
-        manifest: 'manifest.yml'
-        credentialsId: 'deploy-to-cf'
+Release:
+  cfTargets:
+    - org: '4b4ec287trial'
+      space: 'dev'
+      apiEndpoint: 'https://api.cf.us10-001.hana.ondemand.com'
+      appName: 'sap-capire-mail-app'
+      manifest: 'manifest.yml'
+      credentialsId: 'deploy-to-cf'
