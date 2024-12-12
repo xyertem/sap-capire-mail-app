@@ -32,6 +32,7 @@ stages:
 #    credentials:
 #      - alias: 'mySystemAlias'
 #        credentialId: 'mySystemCredentialsId'
+  
   Acceptance:
     cloudFoundryDeploy: false
     cfOrg: '4b4ec287trial'
