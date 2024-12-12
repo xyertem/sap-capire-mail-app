@@ -1,0 +1,43 @@
+###
+# This file configures the project "Piper" pipeline of your project.
+# For a reference of the configuration concept and available options, please have a look into its documentation.
+#
+# The documentation for the most recent pipeline version can always be found at:
+#    https://www.project-piper.io/
+#
+# This is a YAML-file. YAML is an indentation-sensitive file format. Please make sure to properly indent changes to it.
+###
+
+
+
+### General project setup
+general:
+  inferBuildTool: true
+  buildTool: 'mta'
+
+### Stage-specific configuration
+stages:
+  'Confirm':
+    manualConfirmation: false
+
+#  Integration:
+#    credentials:
+#      - alias: 'mySystemAlias'
+#        credentialId: 'mySystemCredentialsId'
+
+ 
+
+### Step-specific configuration
+steps:
+
+  artifactPrepareVersion:
+    versioningType: cloud_noTag
+
+  Release:
+    cfTargets:
+      - org: '4b4ec287trial'
+        space: 'dev'
+        apiEndpoint: 'https://api.cf.us10-001.hana.ondemand.com'
+        appName: 'sap-capire-mail-app'
+        manifest: 'manifest.yml'
+        credentialsId: 'deploy-to-cf'
